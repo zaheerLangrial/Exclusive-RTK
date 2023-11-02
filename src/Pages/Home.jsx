@@ -6,7 +6,7 @@ import ProductGrid from '../Components/ProductGrid'
 function Home() {
   return (
     <>
-    <Header />
+    <Header homeUnderline={true}/>
     <HeroSection />
     <ProductGrid />
     </>

@@ -16,9 +16,7 @@ function Card(props) {
     }
 
     const handleCartButton = (name) =>  {
-        console.log(name)
        const obj = products.find((pro) => pro.title == name)
-       console.log(obj)
        dispatch(addCart(obj))
     }
 

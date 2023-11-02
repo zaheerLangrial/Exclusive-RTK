@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {filterProduct} from '../Store/Slices/ProductsSlice'
 
 
-function Header() {
+function Header(props) {
+  const {homeUnderline} = props
   const dispatch = useDispatch()
   const inputRef = useRef()
   const likes = useSelector(state => state.like)
@@ -17,14 +18,14 @@ function Header() {
     dispatch(filterProduct(inputRef.current.value))
   }
   return (
-    <div className=" w-full">
-      <div className=" max-w-6xl mx-auto flex justify-between items-center py-5">
+    <div className=" w-full sticky top-0 bg-[#ffff] z-10">
+      <div className=" max-w-6xl mx-auto flex justify-between items-center py-5 ">
         <div>
           <h1 className="text-2xl font-bold">Exclusive</h1>
         </div>
         <div className="text-base font-normal flex space-x-3"> 
         <Link to={'/'}>
-          <button >Home</button></Link>
+          <button className={`${homeUnderline === true ? 'border-b' : ''}`}>Home</button></Link>
           <Link to={'/products'}>
           <button >Products</button>
           </Link>
