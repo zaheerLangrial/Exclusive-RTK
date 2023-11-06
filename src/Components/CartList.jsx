@@ -24,14 +24,14 @@ function CartList(Props) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto mt-5">
+    <div className="w-[1170px] mx-auto mt-5">
       <div className="mb-5">
         <h1 className="text-xl font-bold">
           <span className="text-gray-600">Home /</span>
           <span className="ml-1">Cart</span>
         </h1>
       </div>
-      <ul className="grid grid-cols-4 gap-[25%] font-bold shadow-md py-2">
+      <ul className="grid grid-cols-4 gap-[25%] font-bold shadow-md py-2 px-4">
         <li className="text-center">Product</li>
         <li className="text-center">Price</li>
         <li className="text-center">Quantity</li>
@@ -41,7 +41,7 @@ function CartList(Props) {
         {cartProduct.map((product, index) => (
           <li
             key={index}
-            className="grid grid-cols-4 gap-4 mt-3 shadow-md py-2 relative"
+            className="grid grid-cols-4 gap-4 mt-3 shadow-md py-2 relative px-4"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(-1)}
           >
@@ -53,7 +53,7 @@ function CartList(Props) {
             <div className="">
               <input
                 type="number"
-                className="border outline-none w-10 text-center ml-36 mt-2.5"
+                className="border border-black rounded-md py-1 outline-none w-10 text-center ml-36 mt-2"
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
               />

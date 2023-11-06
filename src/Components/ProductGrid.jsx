@@ -9,8 +9,8 @@ function ProductGrid() {
 
   return (
     <div className="w-full py-5">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-4 gap-x-8 py-5">
+      <div className="w-[1170px] mx-auto">
+        <div className="grid grid-cols-4 gap-x-[30px] py-5">
           {displayedProducts.map((product , index) => (
             <Card
             key = {index}

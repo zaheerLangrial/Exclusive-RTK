@@ -19,21 +19,21 @@ function Header(props) {
   }
   return (
     <div className=" w-full sticky top-0 bg-[#ffff] z-10">
-      <div className=" max-w-6xl mx-auto flex justify-between items-center py-5 ">
+      <div className="w-[1170px] mx-auto flex justify-between items-center py-5 ">
         <div>
           <h1 className="text-2xl font-bold">Exclusive</h1>
         </div>
-        <div className="text-base font-normal flex space-x-3"> 
+        <div className="text-base font-normal flex space-x-[48px]"> 
         <Link to={'/'}>
-          <button className={`${homeUnderline === true ? 'border-b' : ''}`}>Home</button></Link>
+          <button className={`${homeUnderline === true ? 'border-b border-black' : ''}`}>Home</button></Link>
           <Link to={'/products'}>
           <button >Products</button>
           </Link>
         </div>
-        <div className="flex space-x-7">
+        <div className="flex space-x-[24px]">
           <div className="flex items-center bg-[#F5F5F5] px-3 space-x-3 rounded-md">
             <input className=" bg-transparent outline-none w-60" type="text"  placeholder="What are you looking for?" ref={inputRef} onChange={HandleFilterProduct}/>
-            <Button 
+            <Button
             child = {SearchIcon} alt = 'Search Icon'
             />
           </div>

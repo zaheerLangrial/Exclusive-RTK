@@ -22,7 +22,7 @@ function Card(props) {
 
   return (
           <div >
-          <div className="w-[260px] h-[240px] flex justify-center items-center bg-[#F5F5F5] relative">
+          <div className="w-[270px] h-[250px] flex justify-center items-center bg-[#F5F5F5] relative">
             <img src={imgLink} alt="" className="bg-[#F5F5F5]" />
             {
                 discount > 0 ?  <p className="bg-[#DB4444] py-1 px-2 rounded-md text-white absolute top-2 left-3">{discount}%</p> : ''

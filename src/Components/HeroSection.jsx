@@ -6,7 +6,7 @@ import iphonePic from "../assets/iphone pic.jpg";
 function HeroSection() {
   return (
     <div className=" w-full py-10">
-      <div className=" max-w-6xl mx-auto bg-black text-white h-[344px] overflow-hidden">
+      <div className="w-[1170px] mx-auto bg-black text-white h-[344px] overflow-hidden">
         <div className=" max-w-5xl mx-auto py-5 flex space-x-5">
           <div className="py-7">
           <div className="flex items-center space-x-3">
