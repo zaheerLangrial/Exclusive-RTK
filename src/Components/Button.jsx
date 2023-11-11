@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
 function Button(props) {
-    const {child , alt , className , width , height , onClick} = props
+  const { child, alt, className, width, height, onClick } = props;
   return (
     <button className={`${className}`} onClick={onClick}>
-        <img src={child} alt={alt} height={height} width={width} />
+      <img src={child} alt={alt} height={height} width={width} />
     </button>
-  )
+  );
 }
 
-export default Button
+export default Button;

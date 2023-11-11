@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const likeSlice = createSlice({
-  name: 'Likes',
+  name: "Likes",
   initialState: [],
   reducers: {
     addLike: (state, action) => {
-      state.push(action.payload)
-      console.log(state.length)
-    }
-  }
+      const obj = action.payload;
+      let likeProduct = state.find((product) => product.title === obj.title);
+      if (!likeProduct) {
+        state.push(obj);
+      }
+    },
+  },
 });
 
 export const { addLike } = likeSlice.actions;

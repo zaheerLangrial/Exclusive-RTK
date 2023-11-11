@@ -1,14 +1,14 @@
-import React from 'react'
-import Header from '../Components/Header'
-import ProductHeroSection from '../Components/Products'
+import React from "react";
+import Header from "../Components/Header";
+import ProductHeroSection from "../Components/Products";
 
 function Products() {
   return (
     <>
-    <Header />
-    <ProductHeroSection />
+      <Header />
+      <ProductHeroSection />
     </>
-  )
+  );
 }
 
-export default Products
+export default Products;

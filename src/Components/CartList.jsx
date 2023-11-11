@@ -1,27 +1,28 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cancelProduct, removeAll } from "../Store/Slices/AddToCartSlice";
+import {
+  cancelProduct,
+  decrementQ,
+  incrementQ,
+  removeAll,
+} from "../Store/Slices/AddToCartSlice";
 import { updateSubtotal } from "../Store/Slices/SubTotalSlice";
+import { Link } from "react-router-dom";
+import { BiSolidUpArrow } from "react-icons/bi";
+import { BiSolidDownArrow } from "react-icons/bi";
 
-function CartList(Props) {
-  const { setQuantity, quantity, setTotal } = Props;
+function CartList() {
   const dispatch = useDispatch();
   const cartProduct = useSelector((state) => state.cart);
+  console.log(cartProduct);
   const HandleRemoveAll = () => {
     dispatch(removeAll());
   };
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
-  const calculateSubtotal = (product, quantity) => {
-    const subtotal = product.newPrice * quantity;
-    dispatch(updateSubtotal({ product, quantity }));
-    return subtotal;
-  };
-
   const handleCancelButton = (name) => {
-    console.log(name)
-    dispatch(cancelProduct(name))
-  }
+    dispatch(cancelProduct(name));
+  };
 
   return (
     <div className="w-[1170px] mx-auto mt-5">
@@ -50,18 +51,26 @@ function CartList(Props) {
               <h1 className="ml-2">{product.title}</h1>
             </div>
             <div className="flex items-center ml-24">${product.newPrice}</div>
-            <div className="">
-              <input
-                type="number"
-                className="border border-black rounded-md py-1 outline-none w-10 text-center ml-36 mt-2"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
-              />
+            <div className="flex justify-center items-center">
+              <div className=" w-fit border rounded-md ml-14 p-2 flex space-x-2 items-center">
+                <h1 className="">{product.quantity}</h1>
+                <div>
+                  <BiSolidUpArrow
+                    onClick={() => dispatch(incrementQ(product.title))}
+                  />
+                  <BiSolidDownArrow
+                    onClick={() => dispatch(decrementQ(product.title))}
+                  />
+                </div>
+              </div>
             </div>
             <div className="flex items-center justify-end mr-3">
-              ${calculateSubtotal(product, quantity)}
+              ${product.quantity * product.newPrice}
               {hoveredIndex === index && (
-                <button className="absolute top-0 left-0 bg-red-500 text-white rounded-full px-2" onClick={() => handleCancelButton(product.title)}>
+                <button
+                  className="absolute top-0 left-0 bg-red-500 text-white rounded-full px-2"
+                  onClick={() => handleCancelButton(product.title)}
+                >
                   X
                 </button>
               )}
@@ -70,9 +79,11 @@ function CartList(Props) {
         ))}
       </ul>
       <div className="flex justify-between mt-7">
-        <button className="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-700">
-          Return To Products
-        </button>
+        <Link to={"/products"}>
+          <button className="px-4 py-2 text-white bg-gray-500 rounded-md hover:bg-gray-700">
+            Return To Products
+          </button>
+        </Link>
         <button
           className="px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-700"
           onClick={HandleRemoveAll}
